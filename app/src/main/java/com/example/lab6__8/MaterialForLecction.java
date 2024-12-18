@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class MaterialForLecction extends Element {
     private String tema;
-    private LocalDate date;
+    private String cabinet;
     private String description;
 
-    public MaterialForLecction(String tema, LocalDate date, String description){
+    public MaterialForLecction(String tema, String cabinet, String description){
         super();
         this.tema = tema;
-        this.date = date;
+        this.cabinet = cabinet;
         this.description =description;
     }
 
@@ -18,8 +18,21 @@ public class MaterialForLecction extends Element {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
     }
 
     @Override
@@ -29,6 +42,21 @@ public class MaterialForLecction extends Element {
 
     @Override
     public String getDetails() {
-        return "Дата проведения" + date;
+        return "Кабинет: " + cabinet;
+    }
+
+    @Override
+    public void setTitle(String s) {
+        tema = s;
+    }
+
+    @Override
+    public void setDetails(String s) {
+        cabinet = s;
+    }
+
+    @Override
+    public void setDescription(String s) {
+        this.description = s;
     }
 }

@@ -13,9 +13,11 @@ import java.util.List;
 
 public class ElementAdapter extends RecyclerView.Adapter<ElementAdapter.ElementViewHolder> {
     private List<Element> elements;
+    private OnElementClickListener listener;
 
-    public ElementAdapter(List<Element> elements) {
+    public ElementAdapter(List<Element> elements, OnElementClickListener listener) {
         this.elements = elements;
+        this.listener = listener;
     }
 
     @NonNull
@@ -30,6 +32,12 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementAdapter.ElementV
         Element element = elements.get(position);
         holder.titleTextView.setText(element.getTitle());
         holder.detailsTextView.setText(element.getDetails());
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onElementClick(elements.indexOf(element)); // Передаём клик вверх
+            }
+        });
     }
 
     @Override
@@ -46,5 +54,7 @@ public class ElementAdapter extends RecyclerView.Adapter<ElementAdapter.ElementV
             detailsTextView = itemView.findViewById(android.R.id.text2);
         }
     }
+
+
 }
 

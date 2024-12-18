@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    ElementsFragment elementsFragment  = new ElementsFragment();
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null){
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragmentContainer, new ElementsFragment())
+                    .add(R.id.fragmentContainer, elementsFragment)
                     .commit();
         }
     }
+
+
 }

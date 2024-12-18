@@ -16,4 +16,12 @@ public abstract class Element {
     abstract public String getTitle();
 
     abstract public String getDetails();
+
+    abstract public String getDescription();
+
+    abstract public void setTitle( String s);
+
+    abstract public void setDetails(String s);
+
+    abstract public void setDescription(String s);
 }

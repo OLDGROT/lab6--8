@@ -6,13 +6,13 @@ import java.util.List;
 public class Group extends Element{
     private String name;
     private String department;
-    private List<Student> students;
+    private String description;
 
-    public Group(String name, String department, List<Student> students){
+    public Group(String name, String department, String description){
         super();
         this.name =name;
         this.department = department;
-        this.students = students;
+        this.description ="Без описания";
     }
 
     public String getName() {
@@ -31,21 +31,6 @@ public class Group extends Element{
         this.department = department;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void addStudent(Student student){
-        students.add(student);
-    }
-
-    public void deleteStudent(Student student){
-        students.remove(student);
-    }
-
-    public void deleteAllStudents(){
-        students.removeAll(students);
-    }
 
     @Override
     public String getTitle() {
@@ -55,5 +40,25 @@ public class Group extends Element{
     @Override
     public String getDetails() {
         return "Кафедра " + department;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setTitle(String s) {
+        name = s;
+    }
+
+    @Override
+    public void setDetails(String s) {
+        department = s;
+    }
+
+    @Override
+    public void setDescription(String s) {
+        this.description = s;
     }
 }

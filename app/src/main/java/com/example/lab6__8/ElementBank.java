@@ -20,11 +20,11 @@ public class ElementBank {
             if(i%2 ==0){
                 Element element = new Group("2" +i +"VA" + rand.nextInt(4)
                         , "Sapr"
-                        , new ArrayList<>() );
+                        , "Любой текст" );
                 elements.add(element);
             }else {
                 Element element = new MaterialForLecction("Android №" +i
-                        , LocalDate.now()
+                        , "7a-20" +rand.nextInt(9)
                         , "Отсутсвует" );
                 elements.add(element);
             }
@@ -46,11 +46,19 @@ public class ElementBank {
         return new ArrayList<>(elements);
     }
 
+    public Element getElementById(int index){
+        return elements.get(index);
+    }
+
     public void removeElement(Element element) {
         elements.remove(element);
     }
 
     public void clear() {
         elements.clear();
+    }
+
+    public void setElement(Element element, int index){
+        elements.set(index, element);
     }
 }
